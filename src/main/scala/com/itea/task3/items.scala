@@ -1,4 +1,4 @@
-package com.itea.task3.list20
+package com.itea.task3
 
 sealed class Iterator (var item: Item) {
   def next (): Item = {
@@ -7,10 +7,6 @@ sealed class Iterator (var item: Item) {
   }
 
   def hasNext (): Boolean = item.next != NIL
-}
-
-object Iterator {
-  def apply(next: Item = NIL): Iterator = new Iterator(next)
 }
 
 
@@ -60,7 +56,7 @@ class Item(val value: AnyRef, item: Item) { //TODO параметры конст
     s
   }
 
-  def iterator (): Iterator = Iterator(next)
+  def iterator (): Iterator = new Iterator(next)
 
   //TODO: распечатать все элементы списка
   def print = println( list() )
