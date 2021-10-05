@@ -1,12 +1,12 @@
-package com.itea.task2.controller
+package com.itea.task2.rest
 
 import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import com.itea.task2.controller.http.HealthRoute
+import com.itea.task2.rest.route.HealthRoute
 
-object SimpleHttp extends App {
+object HealthRest extends App {
 
   implicit val system: ActorSystem = ActorSystem("simple-http")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
