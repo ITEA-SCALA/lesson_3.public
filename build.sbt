@@ -14,7 +14,10 @@ lazy val root = (project in file("."))
       "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.13.3",
       "org.scalatest" %% "scalatest" % "3.1.0",
       "com.typesafe" % "config" % "1.4.1",
-      "io.bfil" %% "automapper" % "0.7.0"
+      "io.bfil" %% "automapper" % "0.7.0",
+
+      "com.typesafe.akka" %% "akka-stream" % "2.5.23",
+      "com.typesafe.akka" %% "akka-http" % "10.1.8"
 	  ),
     scalacOptions ++= Seq("-deprecation")
 )
