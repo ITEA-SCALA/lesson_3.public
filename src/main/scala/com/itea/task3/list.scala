@@ -1,7 +1,7 @@
 package com.itea.task3
 
-sealed class Iterator (var item: Item) {
-  def next (): Item = {
+sealed class Iterator (var item: Storage) {
+  def next (): Storage = {
     item = item.next
     item
   }
@@ -10,19 +10,19 @@ sealed class Iterator (var item: Item) {
 }
 
 
-object NIL extends Item {
+object NIL extends Storage {
   override def toString: String = "NIL"
 }
 
 
-object Item {
-  def apply(): Item = new Item()
-  def apply(value: AnyRef, item: Item): Item = new Item(value, item)
+object Storage {
+  def apply(): Storage = new Storage()
+  def apply(value: AnyRef, item: Storage): Storage = new Storage(value, item)
 }
 
-class Item(val value: AnyRef, item: Item) {
+class Storage(val value: AnyRef, item: Storage) {
 
-  var next: Item = NIL
+  var next: Storage = NIL
 
   def this() = {
     this(null, NIL)
@@ -37,7 +37,7 @@ class Item(val value: AnyRef, item: Item) {
 
   //TODO: удалить последний элемент в списке
   def remove (): Unit = {
-    var l: Item = next
+    var l: Storage = next
     while (l.next != NIL) {
       if (l.next.next == NIL) l.next = NIL
       else l = l.next
@@ -53,7 +53,7 @@ class Item(val value: AnyRef, item: Item) {
     // количество элементов в списке
   def size (): Int = {
     var s = 0
-    var l: Item = next
+    var l: Storage = next
     while (l.next != NIL) {
       l = l.next
       s += 1
@@ -69,10 +69,10 @@ class Item(val value: AnyRef, item: Item) {
     else s"$item"
   }
 
-  private def addWithoutList (v: AnyRef = null, i: Item = this): Unit = { next = new Item(v, i) }
+  private def addWithoutList (v: AnyRef = null, i: Storage = this): Unit = { next = new Storage(v, i) }
 
-  private def list (): Item = {
-    var l: Item = next
+  private def list (): Storage = {
+    var l: Storage = next
     while (l.next != NIL) l = l.next
     l
   }
