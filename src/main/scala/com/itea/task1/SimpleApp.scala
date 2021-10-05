@@ -25,8 +25,8 @@ object SimpleApp extends App {
     case _ => DbConfig
   }
 
-  val dbConfig2: DbConfig = mapper(conf.getAnyRef("config.db"))
-  println("db.login = " + dbConfig2.login)
+//  val dbConfig2: DbConfig = mapper( conf.getAnyRef("config.db") )
+//  println("db.login = " + dbConfig2.login)
 
 
 }
